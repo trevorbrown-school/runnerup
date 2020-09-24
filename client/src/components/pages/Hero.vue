@@ -10,8 +10,9 @@
       </div>
     </main>
     <footer class="hero-footer">
-      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatum incidunt aliquam libero quisquam aperiam laudantium atque inventore. Eius, pariatur? Nostrum facilis earum dolor,
-      mollitia fugit repellat doloremque vitae atque. Accusantium!
+      <p class="footer-content">
+        <strong>&#169;2020 Trevor Brown</strong> - Final Project (CPS 493-03)
+      </p>
     </footer>
   </div>
 </template>
@@ -87,6 +88,12 @@ export default {
   height: 15vh;
   position: absolute;
   bottom: 0;
+  width: 100%;
   padding: 2rem;
+}
+
+.footer-content {
+  position: absolute;
+  bottom: 30%;
 }
 </style>

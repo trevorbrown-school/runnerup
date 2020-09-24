@@ -2,7 +2,10 @@
   <nav class="navbar">
     <router-link to="/home" :class="checkRoute('/home')">Home</router-link>
     <router-link to="/about" :class="checkRoute('/about')">About</router-link>
-    <router-link to="/contact" :class="checkRoute('/contact')">Contact</router-link>
+    <router-link to="/contact" :class="checkRoute('/contact')"
+      >Contact</router-link
+    >
+
     <router-link to="/logout" class="logout">Log Out</router-link>
   </nav>
 </template>
@@ -37,6 +40,20 @@ export default {
   text-align: center;
 }
 
+.navbar a::after {
+  transition: all 0.15s ease;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  content: "";
+  width: 100%;
+  height: 10%;
+  background: #ffd2d200;
+}
+.navbar a:hover::after {
+  background: #ffd2d293;
+}
+
 .navbar .current-nav::after {
   position: absolute;
   left: 0;
@@ -44,7 +61,7 @@ export default {
   content: "";
   width: 100%;
   height: 10%;
-  background: var(--text-color-main);
+  background: var(--text-color-main) !important;
 }
 
 .navbar a:active {

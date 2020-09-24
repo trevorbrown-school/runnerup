@@ -39,6 +39,7 @@ export default {
   margin-top: 1rem;
 }
 .button {
+  transition: all 0.2s ease;
   margin-right: 1rem;
   padding: 1rem;
   text-align: center;

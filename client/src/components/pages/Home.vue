@@ -1,17 +1,16 @@
 <template>
-  <Header />
-  <main class="body">Hello {{name}}!</main>
+  <div id="app">
+    <Header />
+    <main class="body">Hello {{ name }}!</main>
+  </div>
 </template>
 
 <script>
 import Header from "../Header.vue";
 export default {
-  mounted() {
-    console.log();
-  },
   data() {
     return {
-      name: this.$store.state.auth.currentUser.get().rt.tV,
+      name: "Trevor",
     };
   },
   components: {
