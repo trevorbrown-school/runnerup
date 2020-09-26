@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
+import _ from 'lodash';
 import store from '../store';
 
 const routes = [
@@ -11,7 +12,7 @@ const routes = [
         path: '/home',
         name: 'Home',
         meta: {
-            requiresAuth: false,
+            requiresAuth: true,
         },
         component: () => import('../components/pages/Home.vue'),
     },
@@ -34,7 +35,8 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.matched.some((record) => record.meta.requiresAuth)) {
-        if (!store.state.isSignedIn) {
+        if (!_.isEmpty(store.state.userModule.auth) && !store.state.userModule.auth.isSignedIn.get()) {
+            console.log('running');
             next({ path: '/' });
         } else {
             next(); // go to wherever I'm going

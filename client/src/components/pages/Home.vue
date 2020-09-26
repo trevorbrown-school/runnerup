@@ -1,17 +1,16 @@
 <template>
   <div id="app">
     <Header />
-    <main class="body">Hello {{ name }}!</main>
+    <main class="body">Hello {{ profile.getEmail() }}!</main>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 import Header from "../Header.vue";
 export default {
-  data() {
-    return {
-      name: "Trevor",
-    };
+  computed: {
+    ...mapGetters(["profile"]),
   },
   components: {
     Header,

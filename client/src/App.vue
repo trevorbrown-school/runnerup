@@ -6,11 +6,27 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
 import Navbar from "./components/Navbar.vue";
 export default {
   name: "App",
   components: {
     Navbar,
+  },
+  computed: mapGetters(["auth"]),
+  methods: mapActions(["setAuth", "signIn", "signOut"]),
+  mounted() {
+    window.gapi.load("client:auth2", async () => {
+      await window.gapi.client
+        .init({
+          clientId:
+            "250456254334-ftjm0p2a9om31g16btupt44qmhoqqoff.apps.googleusercontent.com",
+          scope: "email",
+        })
+        .then(() => {
+          this.setAuth(window.gapi.auth2.getAuthInstance());
+        });
+    });
   },
 };
 </script>

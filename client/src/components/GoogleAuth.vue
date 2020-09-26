@@ -1,46 +1,31 @@
 <template>
-  <button @click="isSignedIn == false && onAuthChange()">
-    <i class="fab fa-google"></i>
-    <span style="margin-left: 1rem">Google</span>
-  </button>
+    <button @click="onAuthChange()">
+        <i class="fab fa-google"></i>
+        <span style="margin-left: 1rem">Google</span>
+    </button>
 </template>
 
 <script>
+import { mapActions, mapGetters } from 'vuex';
 export default {
-  name: "GoogleAuth",
-  data() {
-    return {
-      auth: null,
-      isSignedIn: false,
-      profile: {},
-    };
-  },
-  methods: {
-    async onAuthChange() {
-      const { isSignedIn } = this;
-
-      if (!isSignedIn) await this.auth.signIn();
-      else await this.auth.signOut();
-
-      this.isSignedIn = this.auth.isSignedIn;
-      if (isSignedIn) this.$router.push("home");
+    name: 'GoogleAuth',
+    methods: {
+        ...mapActions(['setAuth', 'signIn', 'signOut']),
+        //TODO: This could probably be refactored to be much cleaner.
+        async onAuthChange() {
+            console.log(this.auth.isSignedIn.get());
+            if (!this.auth.isSignedIn.get()) {
+                await this.signIn();
+                this.$router.push('home');
+            }
+            console.log(this.auth.isSignedIn.get());
+            if (this.auth.isSignedIn.get()) this.$router.push('home');
+        },
     },
-  },
-  mounted() {
-    window.gapi.load("client:auth2", async () => {
-      await window.gapi.client.init({
-        clientId:
-          "250456254334-ftjm0p2a9om31g16btupt44qmhoqqoff.apps.googleusercontent.com",
-        scope: "email",
-      });
-
-      this.auth = window.gapi.auth2.getAuthInstance();
-      this.profile = this.auth.currentUser.get().getBasicProfile();
-      console.log(this.profile.getName());
-    });
-  },
+    computed: {
+        ...mapGetters(['profile', 'auth']),
+    },
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>
