@@ -1,38 +1,20 @@
 export default {
-    state: () => {
-        return {
-            auth: {},
-            profile: {},
-        };
-    },
-    getters: {
-        profile: (state) => state.profile,
-        auth: (state) => state.auth,
-    },
-    actions: {
-        setAuth({ commit }, auth) {
-            commit('setAuth', auth);
-            commit('setProfile', auth);
-        },
-        signIn({ commit }) {
-            commit('signIn');
-        },
-        async signOut({ commit }) {
-            await commit('signOut');
-        },
-    },
-    mutations: {
-        setAuth(state, auth) {
-            state.auth = auth;
-        },
-        setProfile(state, auth) {
-            state.profile = auth.currentUser.get().getBasicProfile();
-        },
-        signIn(state) {
-            state.auth.signIn();
-        },
-        signOut(state) {
-            state.auth.signOut();
-        },
-    },
+    state: () => {},
+    getters: {},
+    actions: {},
+    mutations: {},
 };
+
+/*
+            window.gapi.load('client:auth2', () => {
+                window.gapi.client
+                    .init({
+                        clientId: '250456254334-ftjm0p2a9om31g16btupt44qmhoqqoff.apps.googleusercontent.com',
+                        scope: 'email',
+                    })
+                    .then(() => {
+                        commit('setAuth', window.gapi.auth2.getAuthInstance());
+                        commit('setProfile', window.gapi.auth2.getAuthInstance());
+                    });
+            });
+            */
