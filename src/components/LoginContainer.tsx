@@ -14,13 +14,18 @@ const LoginContainer: React.FunctionComponent = () => {
 
 
         <div className="LoginContainer">
-            <h1>Login</h1>
+            <h1 style={{ fontFamily: "Sans-Serif, FontAwesome"}}>Login</h1>
+
             <div className="LoginContainer_flex u-space-around">
-                <Input placeholder="Email" type="email" value={text} onChange={(e) => setText(e.target.value)} className="LoginContainer_input" />
-                <Input placeholder="Password" type="password" value={text} onChange={(e) => setText(e.target.value)} className="LoginContainer_input"  />
-                <span><button className="Button">Login</button><button>Sign Up</button></span>
+                <Input placeholder="&#xF0E0;  Email" type="email" value={text} onChange={(e) => setText(e.target.value)} className="LoginContainer_input" />
+                <Input placeholder="&#xf023;  Password" type="password" value={text} onChange={(e) => setText(e.target.value)} className="LoginContainer_input"  />
+                <button className="Button" style={{ marginRight: "2rem", width: "100%" }}>Login</button>
             </div>
-            <p style={{fontSize: "1rem",}}>Forgot Password</p>
+            <div className="LoginContainer_options">
+            <div style={{margin: "1rem 0"}}>Forgot Password</div>
+            <div>New to Runnerup? <span className="emphasis">Sign Up!</span></div>
+            </div>
+            
         </div>
     )
 }

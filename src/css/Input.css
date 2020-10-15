@@ -9,13 +9,13 @@
   }
 }
 .Input-wrapper {
-  font-size: 1.6rem;
+  font-size: 2rem;
   overflow: hidden;
   border-radius: 5px;
   position: relative;
   display: inline-block;
   height: 4rem;
-  width: 30rem;
+  width: 100%;
 }
 .Input-wrapper::after {
   position: absolute;
@@ -53,6 +53,10 @@
   outline: none;
   border: 2px solid dodgerblue;
   background-color: white;
+}
+.Input-primary:focus::placeholder {
+  color: dodgerblue;
+  opacity: 1;
 }
 
 /*# sourceMappingURL=Input.css.map */

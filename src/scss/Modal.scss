@@ -1,0 +1,17 @@
+@import './colors';
+.Modal {
+    z-index: 1000 !important;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($Color-Dark, 0.5);
+
+    &_content {
+        display: inline-block;
+        min-width: 35%;
+    }
+}

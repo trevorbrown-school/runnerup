@@ -1,7 +1,9 @@
 .LoginContainer {
   color: dodgerblue;
-  width: 33%;
-  padding: 2rem;
+  min-width: 100%;
+  width: 40%;
+  padding: 2rem 5rem;
+  max-height: 35%;
   text-align: center;
   background-color: white;
   border: 3px solid dodgerblue;
@@ -13,7 +15,11 @@
   flex-direction: column;
 }
 .LoginContainer_input {
-  width: 70%;
+  width: 100%;
+}
+.LoginContainer_options {
+  font-size: 1.6rem;
+  color: lightslategray;
 }
 
 /*# sourceMappingURL=LoginContainer.css.map */

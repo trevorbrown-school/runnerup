@@ -1,16 +1,16 @@
 @import './colors';
 @import './animations';
 $Color-Underline_active: $Color-Primary;
-$Color-Underline_inactive: lightslategray;
+$Color-Underline_inactive: $Color-Neutral;
 .Input-wrapper {
-    font-size: 1.6rem;
+    font-size: 2rem;
 
     overflow: hidden;
     border-radius: 5px;
     position: relative;
     display: inline-block;
     height: 4rem;
-    width: 30rem;
+    width: 100%;
 
     &::after {
         position: absolute;
@@ -50,5 +50,9 @@ $Color-Underline_inactive: lightslategray;
         border: 2px solid $Color-Underline_active;
         background-color: lighten($Color_Underline_active, 55%);
         // border-bottom: 4px solid lightcoral;
+        &::placeholder {
+            color: $Color-Underline_active;
+            opacity: 1;
+        }
     }
 }
