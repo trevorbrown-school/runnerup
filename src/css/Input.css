@@ -23,7 +23,7 @@
   left: 0;
   width: 100%;
   height: 0.2em;
-  background: lightgray;
+  background: lightslategray;
   content: "";
 }
 
@@ -33,7 +33,7 @@
   left: 0;
   width: 100%;
   height: 0.2em;
-  background: orangered;
+  background: dodgerblue;
   content: "";
   animation: fade-in 0.2s ease-in-out;
   animation-fill-mode: forwards;
@@ -42,16 +42,16 @@
 .Input-primary {
   color: inherit;
   font-size: inherit;
-  border: 2px solid lightgray;
+  border: 2px solid lightslategray;
   border-radius: inherit;
   height: 100%;
   width: 100%;
   padding: 1rem 2rem;
 }
 .Input-primary:focus {
-  color: #661c00;
+  color: #004384;
   outline: none;
-  border: 2px solid orangered;
+  border: 2px solid dodgerblue;
   background-color: white;
 }
 

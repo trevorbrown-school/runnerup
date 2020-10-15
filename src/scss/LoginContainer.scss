@@ -1,0 +1,19 @@
+@import './colors';
+.LoginContainer {
+    color: $Color-Primary;
+    width: 33%;
+    padding: 2rem;
+    text-align: center;
+    background-color: $Color-Primary-Background;
+    border: 3px solid $Color-Primary;
+    border-radius: 10px;
+    &_flex {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &_input {
+        width: 70%;
+    }
+}

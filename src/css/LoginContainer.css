@@ -1,3 +1,19 @@
-
+.LoginContainer {
+  color: dodgerblue;
+  width: 33%;
+  padding: 2rem;
+  text-align: center;
+  background-color: white;
+  border: 3px solid dodgerblue;
+  border-radius: 10px;
+}
+.LoginContainer_flex {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.LoginContainer_input {
+  width: 70%;
+}
 
 /*# sourceMappingURL=LoginContainer.css.map */

@@ -1,7 +1,7 @@
 @import './colors';
 @import './animations';
-$Color-Underline_active: orangered;
-$Color-Underline_inactive: lightgray;
+$Color-Underline_active: $Color-Primary;
+$Color-Underline_inactive: lightslategray;
 .Input-wrapper {
     font-size: 1.6rem;
 

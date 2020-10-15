@@ -4,15 +4,17 @@ import '../css/Input.css';
 interface InputProps {
     placeholder?: string;
     value: string;
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void
-    type?: string
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    type?: string;
+    className?: string;
 
 }
 
-const Input: React.FunctionComponent<InputProps> = ({placeholder, type, value, onChange}) => {
+const Input: React.FunctionComponent<InputProps> = ({placeholder, type, value, onChange, className}) => {
     const [focus, setFocus] = useState(false);
+    //TODO: add in hooks for changing the size via additional classes
     return (
-        <div className={`Input-wrapper ${(focus) ? "Input-focused" : ""}`}>
+        <div className={`Input-wrapper ${(focus) ? "Input-focused" : ""}  ${(className) ? className : ''}`}>
             <input
                 onChange={onChange}
                 value={value}
@@ -20,7 +22,7 @@ const Input: React.FunctionComponent<InputProps> = ({placeholder, type, value, o
                 type={type || "text"}
                 onBlur={() => setFocus(false)}
                 onFocus={() => setFocus(true)}
-                className="Input-primary" />
+                className={`Input-primary`}/>
         </div>
     )
 }
