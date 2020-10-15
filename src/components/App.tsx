@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../css/App.css';
 import '../css/Button.css';
 import Modal from './Modal';
+import LoginContainer from './LoginContainer';
 
 
 const App: React.FunctionComponent = () => {
@@ -9,7 +10,7 @@ const App: React.FunctionComponent = () => {
   return (
     <div className="ui-container">
       <button className="Button" onClick={() => setVisible(true)} style={{ marginRight: "2rem", width: "10%" }}>Open Modal</button>
-      <Modal visible={visible} setVisible={(visible) => setVisible(visible)} />
+      <Modal visible={visible} setVisible={(visible) => setVisible(visible)}><LoginContainer /></Modal>
     {/* <Main /> */}
     {/* <Footer /> */}
     </div>

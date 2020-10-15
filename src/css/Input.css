@@ -1,62 +1,62 @@
 @keyframes fade-in {
-    from {
-        opacity: 0;
-        width: 0;
-    }
-    to {
-        opacity: 1;
-        width: 100%;
-    }
+  from {
+    opacity: 0;
+    width: 0;
+  }
+  to {
+    opacity: 1;
+    width: 100%;
+  }
 }
 .Input-wrapper {
-    font-size: 2rem;
-    overflow: hidden;
-    border-radius: 5px;
-    position: relative;
-    display: inline-block;
-    height: 4rem;
-    width: 100%;
+  font-size: 2rem;
+  overflow: hidden;
+  border-radius: 5px;
+  position: relative;
+  display: inline-block;
+  height: 4rem;
+  width: 100%;
 }
 .Input-wrapper::after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0.2em;
-    background: lightslategray;
-    content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.2em;
+  background: lightslategray;
+  content: "";
 }
 
 .Input-focused::after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 0.2em;
-    background: dodgerblue;
-    content: '';
-    animation: fade-in 0.2s ease-in-out;
-    animation-fill-mode: forwards;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.2em;
+  background: dodgerblue;
+  content: "";
+  animation: fade-in 0.2s ease-in-out;
+  animation-fill-mode: forwards;
 }
 
 .Input-primary {
-    color: inherit;
-    font-size: inherit;
-    border: 2px solid lightslategray;
-    border-radius: inherit;
-    height: 100%;
-    width: 100%;
-    padding: 1rem 2rem;
+  color: inherit;
+  font-size: inherit;
+  border: 2px solid lightslategray;
+  border-radius: inherit;
+  height: 100%;
+  width: 100%;
+  padding: 1rem 2rem;
 }
 .Input-primary:focus {
-    color: #004384;
-    outline: none;
-    border: 2px solid dodgerblue;
-    background-color: white;
+  color: #004384;
+  outline: none;
+  border: 2px solid dodgerblue;
+  background-color: white;
 }
 .Input-primary:focus::placeholder {
-    color: dodgerblue;
-    opacity: 1;
+  color: dodgerblue;
+  opacity: 1;
 }
 
 /*# sourceMappingURL=Input.css.map */

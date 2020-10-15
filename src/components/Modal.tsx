@@ -1,14 +1,14 @@
 import React from 'react'
-import LoginContainer from './LoginContainer'
 import '../css/Modal.css';
 
 interface ModalProps {
     visible: boolean;
     setVisible: (visible: boolean) => void;
+    children: React.ReactNode;
 }
 
 
-const Modal: React.FunctionComponent<ModalProps> = ({visible, setVisible}) => {
+const Modal: React.FunctionComponent<ModalProps> = ({visible, setVisible, children}) => {
     const modalClick = (event: React.MouseEvent) => {
         setVisible(false);
     }
@@ -19,7 +19,7 @@ const Modal: React.FunctionComponent<ModalProps> = ({visible, setVisible}) => {
         return (
         <div onClick={modalClick} className="Modal">
             <div onClick={(e) => e.stopPropagation()} className="Modal_content">
-                <LoginContainer/>
+            {children}
             </div>
         </div>
         );
