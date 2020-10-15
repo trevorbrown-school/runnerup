@@ -1,13 +1,12 @@
 import React from 'react';
 import '../css/App.css';
-import Main from './Main';
-import Input from './Input';
+import LoginContainer from './LoginContainer';
+
 
 const App: React.FunctionComponent = () => {
   return (
     <div className="ui-container">
-      <Input />
-      Test Change
+      <LoginContainer />
     {/* <Main /> */}
     {/* <Footer /> */}
     </div>
