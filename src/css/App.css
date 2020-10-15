@@ -46,6 +46,10 @@ button:active {
   color: dodgerblue;
 }
 
+.demphasis {
+  color: lightslategray;
+}
+
 .u-space-below > *:not(:last-child) {
   margin-bottom: 1rem;
 }
