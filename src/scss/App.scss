@@ -1,0 +1,24 @@
+@import './colors';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: $Color-Dark;
+    font-size: 1.6rem;
+}
+
+.ui-container {
+    background: white;
+    margin: 0 8rem;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
