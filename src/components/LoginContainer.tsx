@@ -18,7 +18,10 @@ const LoginContainer: React.FunctionComponent = () => {
 
             <div className="LoginContainer_flex u-space-around">
                 <Input placeholder="&#xF0E0;  Email" type="email" value={text} onChange={(e) => setText(e.target.value)} className="LoginContainer_input" />
-                <Input placeholder="&#xf023;  Password" type="password" value={text} onChange={(e) => setText(e.target.value)} className="LoginContainer_input"  />
+                <Input placeholder="&#xf023;  Password" type="password" value={text} onChange={(e) => setText(e.target.value)} className="LoginContainer_input" />
+                <span style={{alignSelf: "flex-start"}}>
+                <input type="checkbox" name="Remember Me" id="remember-me" /> <label htmlFor="remember-me">Remember Me</label>
+                </span>
                 <button className="Button" style={{ marginRight: "2rem", width: "100%" }}>Login</button>
             </div>
             <div className="LoginContainer_options">
