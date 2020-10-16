@@ -7,9 +7,11 @@ const Navbar: React.FunctionComponent = () => {
         return (
             <>
               <button className="Navbar_item Navbar_item-current">Home</button>  
-              <button className="Navbar_item">Home</button>  
-              <button className="Navbar_item">Home</button>  
-              <button className="Navbar_item">Home</button>  
+              
+                
+                
+                
+                <span className="Navbar_end"><button className="Navbar_item">Login</button><button className="Navbar_item">Sign Up</button></span>
             </>
         );
     }

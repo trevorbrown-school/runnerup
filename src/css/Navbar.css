@@ -9,10 +9,12 @@
   }
 }
 .Navbar {
+  display: flex;
+  font-size: 2.5rem;
   overflow: hidden;
   width: 100%;
-  min-height: 4rem;
-  background-color: dodgerblue;
+  min-height: 5rem;
+  background-color: #004384;
 }
 .Navbar_item-current::after {
   position: absolute;
@@ -25,7 +27,12 @@
   background-color: dodgerblue;
   animation: fade-in 0.3s ease-in-out;
 }
+.Navbar_end {
+  margin-left: auto !important;
+}
 .Navbar_item {
+  user-select: none;
+  font-size: inherit;
   z-index: 2;
   cursor: pointer;
   position: relative;
@@ -34,7 +41,7 @@
   display: inline-block;
   background-color: white;
   text-decoration: none;
-  height: 100%;
+  height: 5rem;
 }
 .Navbar_item:last-child {
   z-index: 1;

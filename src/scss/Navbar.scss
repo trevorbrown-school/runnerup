@@ -11,17 +11,27 @@
     background-color: $Color-Primary;
     animation: fade-in 0.3s ease-in-out;
 }
+$_Navbar-height: 5rem;
+
 .Navbar {
+    display: flex;
+    font-size: 2.5rem;
     overflow: hidden;
     width: 100%;
-    min-height: 4rem;
-    background-color: $Color-Primary;
+    min-height: $_Navbar-height;
+    background-color: $Color-Primary-Dark;
 
     &_item-current::after {
         @include nav-underline();
     }
 
+    &_end {
+        margin-left: auto !important;
+    }
+
     &_item {
+        user-select: none;
+        font-size: inherit;
         z-index: 2;
         cursor: pointer;
         position: relative;
@@ -30,7 +40,7 @@
         display: inline-block;
         background-color: $Color-Primary-Background;
         text-decoration: none;
-        height: 100%;
+        height: $_Navbar-height;
 
         &:last-child {
             z-index: 1;
