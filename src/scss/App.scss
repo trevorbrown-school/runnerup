@@ -15,8 +15,12 @@ body {
     background: $Color-Dark;
     font-size: 1.6rem;
 }
-
 button {
+    outline: none;
+    border: none;
+    font-size: 2rem;
+}
+.Button {
     font-size: 2rem;
     color: $Color-Neutral;
     outline: none;
