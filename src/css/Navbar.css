@@ -14,7 +14,7 @@
   overflow: hidden;
   width: 100%;
   min-height: 5rem;
-  background-color: #004384;
+  background-color: #002951;
 }
 .Navbar_item-current::after {
   position: absolute;
@@ -71,4 +71,4 @@
   animation: fade-in 0.3s ease-in-out;
 }
 
-/*# sourceMappingURL=navbar.css.map */
+/*# sourceMappingURL=Navbar.css.map */
