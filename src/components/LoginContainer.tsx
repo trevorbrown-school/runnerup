@@ -1,12 +1,9 @@
 import React, { useState } from 'react'
 import Input from './Input';
-import '../css/LoginContainer.css'
-import '../css/Button.css'
-// TODO:
-//                 Create some standard button styles
-//                 create a secondary, primary and warning button
+import Button from './Button';
 
-//                 Style login container
+import '../css/LoginContainer.css'
+
 
 const LoginContainer: React.FunctionComponent = () => {
     const [email, setEmail] = useState("");
@@ -39,7 +36,7 @@ const LoginContainer: React.FunctionComponent = () => {
                 <div className="LoginContainer_input" style={{position: "relative"}}><Input placeholder="&#xf023;  Password" type={(passwordVisible) ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)}  />{renderEye()}</div>
                 
                     {checkBox()}
-                <button className="Button" style={{ marginRight: "2rem", width: "100%" }}>Login</button>
+                <Button style={{ marginRight: "2rem", width: "100%" }}>Login</Button>
             </div>
             <div className="LoginContainer_options">
             <div style={{margin: "1rem 0"}}>Forgot Password</div>

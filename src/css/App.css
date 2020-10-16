@@ -35,7 +35,7 @@ button:active {
 
 .ui-container {
   position: relative;
-  background: lightcyan;
+  background: white;
   margin: 0 8rem;
   height: 100vh;
   overflow-y: auto;
