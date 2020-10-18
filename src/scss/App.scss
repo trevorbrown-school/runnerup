@@ -40,6 +40,16 @@ button {
     }
 }
 
+.btn-secondary {
+    color: $Color-Neutral !important;
+    border: 3px solid $Color-Neutral !important;
+
+    &:hover {
+        color: $Color-Primary-Background !important;
+        border: 3px solid $Color-Primary-Background !important;
+    }
+}
+
 .ui-container {
     position: relative;
     background: $Color-Primary-Background;

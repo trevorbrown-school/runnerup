@@ -16,9 +16,9 @@ const Navbar: React.FunctionComponent = () => {
         return (
             <>
                 <Link to="/" className={`Navbar_item ${getRouteClasses('/')}`}>Home</Link> 
-              <Link to="/workouts" className={`Navbar_item ${getRouteClasses('/browse')}`}>Workouts</Link> 
+              <Link to="/workouts" className={`Navbar_item ${getRouteClasses('/workouts')}`}>Workouts</Link> 
 
-                <span className="Navbar_end"><button className="Navbar_item" onClick={() => setLoginVisible(true)}>Login</button><button className="Navbar_item">Sign Up</button></span>
+                <span className="Navbar_end"><Link to="#" className="Navbar_item" onClick={() => setLoginVisible(true)}>Login</Link><Link to="/signup" className={`Navbar_item ${getRouteClasses('/signup')}`}>Sign Up</Link></span>
             </>
         );
     }
