@@ -1,0 +1,15 @@
+@import './colors';
+$_Color-Outline: $Color-Primary;
+$_Color-Text: $Color-Primary;
+$_Color-Background: lighten($_Color-Text, 59%);
+
+.Button {
+    color: $_Color-Text;
+    border-color: $_Color-Outline;
+    background-color: $_Color-Background;
+
+    &:hover {
+        background-color: $_Color-Text;
+        color: $_Color-Background;
+    }
+}
