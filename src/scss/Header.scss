@@ -13,16 +13,17 @@
 
     &_text-container {
         display: block;
-        overflow: hidden;
+        // overflow: hidden;
         z-index: 0;
         text-transform: uppercase;
         user-select: none;
-        font-size: 3rem;
+        font-size: 200%;
         letter-spacing: 0.6rem;
         display: flex;
         justify-content: flex-start;
         align-items: center;
         transition: all 0.1s ease-in-out;
+
         &:hover {
             cursor: pointer;
             transform: translateY(-5px);
@@ -37,12 +38,13 @@
     &_text {
         display: inline-block;
         overflow: hidden;
+
         animation: swipe-in-right 0.8s ease-in-out;
-        animation-fill-mode: forwards;
+        // animation-fill-mode: forwards;
     }
 
     &_icon::before {
-        font-size: 4rem;
+        font-size: 200%;
         display: inline-block;
         z-index: 1;
         transform: rotate(-90deg);

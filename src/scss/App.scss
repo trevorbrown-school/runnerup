@@ -70,8 +70,59 @@ a:visited {
     color: unset;
     text-decoration: none;
 }
+.c-primary {
+    color: $Color-Primary !important;
+}
+
+.c-primary-dark {
+    color: $Color-Primary-Dark !important;
+}
+
+.oh-primary,
+.oh-neutral {
+    border: none;
+    transition: border 0.2 ease-in-out;
+}
+
+.oh-primary:hover {
+    border: 0.3rem solid $Color-Primary !important;
+}
+
+.oh-neutral:hover {
+    border: 0.3rem solid $Color-Neutral !important;
+}
+
+.c-primary-background {
+    color: $Color-Primary-Background !important;
+}
+
+.bg-primary {
+    background-color: $Color-Primary !important;
+}
+
+.bg-primary-dark {
+    background-color: $Color-Primary-Dark !important;
+}
+
+.bg-primary-background {
+    background-color: $Color-Primary-Background !important;
+}
+
+.bg-neutral {
+    background-color: $Color-Neutral !important;
+}
 
 @media screen and (max-width: 600px) {
+    //TODO handle MQ in components individually
+    .Navbar {
+        display: none !important;
+    }
+    .HamburgerMenu {
+        display: initial;
+    }
+    .Header {
+        font-size: 0.7rem !important;
+    }
     .ui-container {
         margin: 0;
     }
