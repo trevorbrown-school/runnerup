@@ -51,7 +51,7 @@ const TiledGrid: React.FunctionComponent = () => {
         <div className="TiledGrid">
             <Modal setVisible={setModalVisible} visible={modalVisible}>
                 <div className="TiledGrid_modal-body">
-                    <i className="fas fa-times TiledGrid_modal-body_close"
+                    <i className="fas fa-times modal-close"
                     onClick={() => setModalVisible(false)}
                     ></i>            
                     <h1>{modalContent?.title}</h1>    

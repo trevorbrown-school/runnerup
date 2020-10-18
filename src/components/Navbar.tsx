@@ -27,7 +27,10 @@ const Navbar: React.FunctionComponent = () => {
 
     return (
         <div className="Navbar">
-            <Modal setVisible={setLoginVisible} visible={loginVisible}><LoginContainer /></Modal>
+            <Modal setVisible={setLoginVisible} visible={loginVisible}>
+   
+                <LoginContainer />
+            </Modal>
             {renderRoutes()}
         </div>
     )
