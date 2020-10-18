@@ -1,0 +1,50 @@
+@import './colors';
+@import './animations';
+
+.Header {
+    color: $Color-Primary-Background;
+    background-color: $Color-Primary-Dark;
+
+    height: 25vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &_text-container {
+        display: block;
+        overflow: hidden;
+        z-index: 0;
+        text-transform: uppercase;
+        user-select: none;
+        font-size: 3rem;
+        letter-spacing: 0.6rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        transition: all 0.1s ease-in-out;
+        &:hover {
+            cursor: pointer;
+            transform: translateY(-5px);
+            color: lighten($Color-Primary, 33%);
+        }
+
+        &:active {
+            transform: translateY(1px);
+            color: unset;
+        }
+    }
+    &_text {
+        display: inline-block;
+        overflow: hidden;
+        animation: swipe-in-right 0.8s ease-in-out;
+        animation-fill-mode: forwards;
+    }
+
+    &_icon::before {
+        font-size: 4rem;
+        display: inline-block;
+        z-index: 1;
+        transform: rotate(-90deg);
+    }
+}

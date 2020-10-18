@@ -65,6 +65,12 @@ button {
     margin: 1rem;
 }
 
+a:link,
+a:visited {
+    color: unset;
+    text-decoration: none;
+}
+
 @media screen and (max-width: 600px) {
     .ui-container {
         margin: 0;

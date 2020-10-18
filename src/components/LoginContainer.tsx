@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Input from './Input';
 import Button from './Button';
 
-import '../css/LoginContainer.css'
+import '../scss/LoginContainer.scss'
 
 
 const LoginContainer: React.FunctionComponent = () => {

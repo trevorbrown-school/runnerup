@@ -19,8 +19,8 @@ $_Navbar-height: 5rem;
     overflow: hidden;
     width: 100%;
     min-height: $_Navbar-height;
-    background-color: $Color-Primary-Dark;
-
+    background-color: $Color-Neutral;
+    color: $Color-Primary;
     &_item-current::after {
         @include nav-underline();
     }

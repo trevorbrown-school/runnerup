@@ -8,3 +8,13 @@
         width: 100%;
     }
 }
+
+@keyframes swipe-in-right {
+    0% {
+        width: 0%;
+    }
+
+    100% {
+        width: 100%;
+    }
+}

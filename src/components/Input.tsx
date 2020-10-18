@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import '../css/Input.css';
-
+// import '../scss/Input.scss';
+import '../scss/Input.scss';
 interface InputProps {
     placeholder?: string;
     value: string;
