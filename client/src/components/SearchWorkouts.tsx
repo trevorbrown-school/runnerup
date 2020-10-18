@@ -11,7 +11,7 @@ const SearchWorkouts: React.FunctionComponent<SearchProps> = ({ content, filter 
 
     useEffect(() => {
         const arr = content.filter((workout) => {
-            return workout.title.includes(term);
+            return workout.name.toLowerCase().includes(term.toLowerCase());
         })
         filter(arr);
 

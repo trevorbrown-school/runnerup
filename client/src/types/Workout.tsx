@@ -1,8 +1,7 @@
 interface Workout {
-    userId: number;
     id: number;
-    title: string;
-    body: string;
+    name: string;
+    description: string;
 }
 
 export default Workout;

@@ -16,9 +16,20 @@ const BrowseWorkouts: React.FunctionComponent = () => {
 
     useEffect(() => {
         const getPosts = async () => {
-            const response = await axios.get('http://jsonplaceholder.typicode.com/posts');
-            setWorkouts(response.data);
-            setFilteredWorkouts(response.data);
+            const response = await axios.get('https://wger.de/api/v2/exercise/?language=2&limit=50');
+            console.log(response.data);
+            const results: Workout[] = response.data.results;
+
+            results.forEach(result => {
+                result.name = result.name.replace(/<.+?>/g, '');
+                result.description = result.description.replace(/<.+?>/g, '');
+            })
+
+            setWorkouts(results);
+
+
+
+            setFilteredWorkouts(results);
         }
         getPosts();
     }, [])

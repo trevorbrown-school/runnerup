@@ -33,7 +33,7 @@ const TiledGrid: React.FunctionComponent<GridProps> = ({ content }) => {
                         }}
                         className={`TiledGrid_grid-container_item ${(i++ % 2 === 0) ? 'bg-primary oh-neutral' : 'bg-neutral oh-primary'}`}
                     >
-                    <div className="TiledGrid_grid-container_item-container"><h1>{workout.title}</h1></div>
+                    <div className="TiledGrid_grid-container_item-container"><h1>{workout.name}</h1></div>
                     <Button onClick={(e) => e.stopPropagation()} className="btn-secondary">Add Workout</Button>
                         {/* <p>{workout.body}</p> */}
                     </div>)
@@ -41,15 +41,17 @@ const TiledGrid: React.FunctionComponent<GridProps> = ({ content }) => {
         }
     
     const renderModal = () => {
-        return (<Modal setVisible={setModalVisible} visible={modalVisible}>
+        return (
+            <Modal setVisible={setModalVisible} visible={modalVisible}>
             <div className="TiledGrid_modal-body">
                 <i className="fas fa-times modal-close"
                     onClick={() => setModalVisible(false)}
                 ></i>
-                <h1>{modalContent?.title}</h1>
-                <p>{modalContent?.body}</p>
+                <h1>{modalContent?.name}</h1>
+                <p>{modalContent?.description}</p>
             </div>
-        </Modal>);
+            </Modal>
+        );
     }
     
     return (
