@@ -1,32 +1,26 @@
-import React, { useEffect, useState } from 'react'
-import axios from 'axios';
+import React, { useState } from 'react'
 
 import '../scss/TiledGrid.scss';
 import Modal from './Modal';
 import Button from './Button';
+import Workout from 'types/Workout';
 // import Button from './Button';
 
-interface Workout {
-    userId: number;
-    id: number;
-    title: string;
-    body: string;
+
+
+interface GridProps {
+    content: Workout[];
 }
 
-const TiledGrid: React.FunctionComponent = () => {
+
+const TiledGrid: React.FunctionComponent<GridProps> = ({ content }) => {
+    const workouts = content;
     const [modalVisible, setModalVisible] = useState(false);
-    const [workouts, setWorkouts] = useState<Workout[]>([]);
     const [modalContent, setModalContent] = useState<Workout>();
                 //On click, render content in a modal!!
     
     
-    useEffect(() => {
-        const getPosts = async () => {
-            const response = await axios.get('http://jsonplaceholder.typicode.com/posts');
-            setWorkouts(response.data);
-        }
-        getPosts();
-    }, [])
+    
     
     const renderGridItems = (workouts: Workout[]) => {
         let i = 0;
@@ -39,7 +33,6 @@ const TiledGrid: React.FunctionComponent = () => {
                         }}
                         className={`TiledGrid_grid-container_item ${(i++ % 2 === 0) ? 'bg-primary oh-neutral' : 'bg-neutral oh-primary'}`}
                     >
-
                     <div className="TiledGrid_grid-container_item-container"><h1>{workout.title}</h1></div>
                     <Button onClick={(e) => e.stopPropagation()} className="btn-secondary">Add Workout</Button>
                         {/* <p>{workout.body}</p> */}
@@ -47,20 +40,24 @@ const TiledGrid: React.FunctionComponent = () => {
             })
         }
     
+    const renderModal = () => {
+        return (<Modal setVisible={setModalVisible} visible={modalVisible}>
+            <div className="TiledGrid_modal-body">
+                <i className="fas fa-times modal-close"
+                    onClick={() => setModalVisible(false)}
+                ></i>
+                <h1>{modalContent?.title}</h1>
+                <p>{modalContent?.body}</p>
+            </div>
+        </Modal>);
+    }
+    
     return (
         <div className="TiledGrid">
-            <Modal setVisible={setModalVisible} visible={modalVisible}>
-                <div className="TiledGrid_modal-body">
-                    <i className="fas fa-times modal-close"
-                    onClick={() => setModalVisible(false)}
-                    ></i>            
-                    <h1>{modalContent?.title}</h1>    
-                    <p>{modalContent?.body}</p>    
-                </div>
-                
-                </Modal>
+
+
+            {renderModal()}
             <div className="TiledGrid_grid-container">
-               
                 {renderGridItems(workouts)}
                 
              </div>
