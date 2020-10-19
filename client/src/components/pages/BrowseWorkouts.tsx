@@ -3,6 +3,8 @@ import TiledGrid from 'components/TiledGrid'
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import Workout from 'types/Workout';
+import Loading from 'components/Loading';
+import '../../scss/BrowseWorkouts.scss';
 
 
 /* 
@@ -13,12 +15,12 @@ const BrowseWorkouts: React.FunctionComponent = () => {
     const [workouts, setWorkouts] = useState<Workout[]>([]);
     const [filteredWorkouts, setFilteredWorkouts] = useState<Workout[]>([]);
 
+    
 
     useEffect(() => {
         const getPosts = async () => {
-            const response = await axios.get('https://wger.de/api/v2/exercise/?language=2&limit=50');
-            console.log(response.data);
-            const results: Workout[] = response.data.results;
+            const response = await axios.get('http://localhost:5000/workouts');
+            const results: Workout[] = response.data;
 
             results.forEach(result => {
                 result.name = result.name.replace(/<.+?>/g, '');
@@ -34,10 +36,17 @@ const BrowseWorkouts: React.FunctionComponent = () => {
         getPosts();
     }, [])
 
-
+    const resourceLoading = () => {
+        if(workouts.length === 0) return <Loading /> 
+            
+    }
+    
     return (
+        
         <div className="BrowseWorkouts">
-            <SearchWorkouts content={workouts} filter={setFilteredWorkouts} />
+            
+            <SearchWorkouts content={workouts} style={{marginBottom: "2rem"}} filter={setFilteredWorkouts} />
+            {resourceLoading()}
             <TiledGrid content={filteredWorkouts} />
         </div>
     )

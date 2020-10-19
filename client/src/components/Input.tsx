@@ -24,7 +24,7 @@ const Input: React.FunctionComponent<InputProps> = ({placeholder, type, value, o
                 type={type || "text"}
                 onBlur={() => setFocus(false)}
                 onFocus={() => setFocus(true)}
-                className={`Input-primary`}/>
+                className={`Input-primary ${className}`}/>
         </div>
     )
 }

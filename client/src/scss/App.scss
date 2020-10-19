@@ -15,6 +15,11 @@ body {
     background: $Color-Dark;
     font-size: 1.6rem;
 }
+
+div:focus {
+    outline: none;
+}
+
 button {
     outline: none;
     border: none;
