@@ -6,7 +6,7 @@
     &_modal-body {
         padding: 2rem;
         position: relative;
-        height: 50vh;
+        min-height: 50vh;
         width: 60vw;
         background-color: $Color-Primary-Background;
     }
@@ -40,25 +40,6 @@
             &-container {
                 flex: 1;
             }
-
-            button {
-            }
-        }
-
-        .t1 {
-            min-height: $_Cell-Size;
-            min-width: $_Cell-Size;
-            background-color: hotpink;
-        }
-        .t2 {
-            min-height: $_Cell-Size;
-            min-width: $_Cell-Size;
-            background-color: lightblue;
-        }
-        .t3 {
-            min-height: $_Cell-Size;
-            min-width: $_Cell-Size;
-            background-color: lightgreen;
         }
     }
 }
