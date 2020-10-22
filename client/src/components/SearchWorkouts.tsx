@@ -11,6 +11,8 @@ interface SearchProps {
 }
 
 const SearchWorkouts: React.FunctionComponent<SearchProps> = ({ content, filter, className, style }) => {
+
+    
     const [term, setTerm] = useState("");
     useEffect(() => {
         const arr = content.filter((workout) => {

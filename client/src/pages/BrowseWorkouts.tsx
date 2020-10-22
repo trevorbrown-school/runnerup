@@ -1,7 +1,6 @@
 import SearchWorkouts from 'components/SearchWorkouts'
 import TiledGrid from 'components/TiledGrid'
-import React, { useEffect, useState } from 'react'
-import wger from '../api/wger';
+import React, { useEffect } from 'react'
 import Workout from 'types/Workout';
 import Loading from 'components/Loading';
 import '../scss/BrowseWorkouts.scss';
@@ -10,35 +9,25 @@ import '../scss/BrowseWorkouts.scss';
 /* 
 TODO: Make search bar and use properties of a post as criteria for filtering
 */
+interface BrowseWorkoutsParams {
+    workouts: Workout[],
+    filteredWorkouts: Workout[],
+    setFilteredWorkouts: React.Dispatch<React.SetStateAction<Workout[]>>;
+    myWorkouts: Workout[],
+    setMyWorkouts: React.Dispatch<React.SetStateAction<Workout[]>>;
+}
 
-const BrowseWorkouts: React.FunctionComponent = () => {
-    const [workouts, setWorkouts] = useState<Workout[]>([]);
-    const [filteredWorkouts, setFilteredWorkouts] = useState<Workout[]>([]);
-    
-    
 
+const BrowseWorkouts: React.FunctionComponent<BrowseWorkoutsParams> = ({ workouts, filteredWorkouts, setFilteredWorkouts, setMyWorkouts }) => {
+    
     useEffect(() => {
-        const getPosts = async () => {
-            const response = await wger.get('/', {
-                params: {
-                    limit: 100
-            }});
-            const results: Workout[] = response.data.results;
+        setFilteredWorkouts(workouts);
+    }, [workouts, setFilteredWorkouts]);
 
-            results.forEach(result => {
-                result.name = result.name.replace(/<.+?>/g, '');
-                result.description = result.description.replace(/<.+?>/g, '');
-            })
-
-            setWorkouts(results);
-
-
-
-            setFilteredWorkouts(results);
-        }
-        getPosts();
-    }, [])
-
+    const addWorkout = (workout: Workout) => {
+        setMyWorkouts(oldWorkouts => [...oldWorkouts, workout]);
+    }
+    
     const resourceLoading = () => {
         if(workouts.length === 0) return <Loading /> 
             
@@ -48,9 +37,9 @@ const BrowseWorkouts: React.FunctionComponent = () => {
         
         <div className="BrowseWorkouts">
             
-            <SearchWorkouts content={workouts} style={{marginBottom: "2rem"}} filter={setFilteredWorkouts} />
+            <SearchWorkouts content={workouts} style={{marginBottom: "2rem"}} filter={setFilteredWorkouts}  />
             {resourceLoading()}
-            <TiledGrid content={filteredWorkouts} />
+            <TiledGrid content={filteredWorkouts} addWorkout={addWorkout} />
         </div>
     )
 }

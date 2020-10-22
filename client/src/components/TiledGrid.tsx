@@ -10,10 +10,12 @@ import Workout from 'types/Workout';
 
 interface GridProps {
     content: Workout[];
+    addWorkout?: (workout: Workout) => void;
+    removeWorkout?: (workout: Workout) => void;
 }
 
 
-const TiledGrid: React.FunctionComponent<GridProps> = ({ content }) => {
+const TiledGrid: React.FunctionComponent<GridProps> = ({ content, addWorkout, removeWorkout }) => {
     const workouts = content;
     const [modalVisible, setModalVisible] = useState(false);
     const [modalContent, setModalContent] = useState<Workout>();
@@ -34,7 +36,13 @@ const TiledGrid: React.FunctionComponent<GridProps> = ({ content }) => {
                         className={`TiledGrid_grid-container_item ${(i++ % 2 === 0) ? 'bg-primary oh-neutral' : 'bg-neutral oh-primary'}`}
                     >
                     <div className="TiledGrid_grid-container_item-container"><h1>{workout.name}</h1></div>
-                    <Button onClick={(e) => e.stopPropagation()} className="btn-secondary">Add Workout</Button>
+                    <Button onClick={(e) => {
+                        e.stopPropagation();
+                        if(addWorkout)
+                            addWorkout(workout);
+                        if (removeWorkout)
+                            removeWorkout(workout);
+                    }} className="btn-secondary">{(addWorkout) ? "Add Workout" : "Remove Workout"}</Button>
                         {/* <p>{workout.body}</p> */}
                     </div>)
             })
