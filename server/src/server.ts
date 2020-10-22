@@ -1,10 +1,11 @@
+require('dotenv').config();
 import express from 'express';
 import cors from 'cors';
+import users from './routes/users';
 const PORT = process.env.PORT || 5000;
-import workouts from './routes/workouts';
 const app = express();
 app.use(cors());
-app.use(workouts);
+app.use('/users', users);
 
 
 
