@@ -1,6 +1,5 @@
-import { request, Router } from 'express';
-import requestUser from '../mongo/requestUser';
-
+import {  Router } from 'express';
+import {requestUser, postUser, updateUser} from '../mongo';
 const users = Router();
 
 users.get('/:id', (req, res) => {
@@ -11,9 +10,20 @@ users.get('/:id', (req, res) => {
 });
 
 users.post('/', (req, res) => {
-    // TODO figure out how to parse json
-    // console.log();
-    res.send('Post Recieved!')
+    postUser(req.body, user => {
+        console.log("Posted User:", user);
+        res.send(user);
+    });
+
+    // res.send('Post Recieved!')
+})
+
+users.post('/u/:id', (req, res) => {
+    updateUser(req.params.id, req.body.workouts, (user) => {
+        console.log("FROM UPDATE USER:", user);
+        res.send(user);
+    });
+    
 })
 
 export default users;

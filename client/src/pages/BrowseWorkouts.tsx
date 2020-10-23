@@ -13,20 +13,18 @@ interface BrowseWorkoutsParams {
     workouts: Workout[],
     filteredWorkouts: Workout[],
     setFilteredWorkouts: React.Dispatch<React.SetStateAction<Workout[]>>;
-    myWorkouts: Workout[],
-    setMyWorkouts: React.Dispatch<React.SetStateAction<Workout[]>>;
+    myWorkouts: number[],
+    addWorkout: (workout: Workout) => void;
 }
 
 
-const BrowseWorkouts: React.FunctionComponent<BrowseWorkoutsParams> = ({ workouts, filteredWorkouts, setFilteredWorkouts, setMyWorkouts }) => {
+const BrowseWorkouts: React.FunctionComponent<BrowseWorkoutsParams> = ({ workouts, filteredWorkouts, setFilteredWorkouts, myWorkouts, addWorkout }) => {
     
     useEffect(() => {
         setFilteredWorkouts(workouts);
     }, [workouts, setFilteredWorkouts]);
 
-    const addWorkout = (workout: Workout) => {
-        setMyWorkouts(oldWorkouts => [...oldWorkouts, workout]);
-    }
+    
     
     const resourceLoading = () => {
         if(workouts.length === 0) return <Loading /> 
