@@ -5,7 +5,7 @@ import Button from './Button';
 import '../scss/LoginContainer.scss'
 
 
-const LoginContainer: React.FunctionComponent = () => {
+const LoginContainer: React.FunctionComponent = ({ children }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordVisible, setPasswordVisible] = useState(false);
@@ -35,8 +35,9 @@ const LoginContainer: React.FunctionComponent = () => {
                 <Input placeholder="&#xF0E0;  Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} className="LoginContainer_input" />
                 <div className="LoginContainer_input" style={{position: "relative"}}><Input placeholder="&#xf023;  Password" type={(passwordVisible) ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)}  />{renderEye()}</div>
                 
-                    {checkBox()}
-                <Button style={{ marginRight: "2rem", width: "100%" }}>Login</Button>
+                {checkBox()}
+                {children}
+                {/* <Button style={{ marginRight: "2rem", width: "100%" }}>Login</Button> */}
             </div>
             <div className="LoginContainer_options">
             <div style={{margin: "1rem 0"}}>Forgot Password</div>

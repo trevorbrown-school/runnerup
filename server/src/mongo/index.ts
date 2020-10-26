@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 import User from '../models/User';
-import userSchema from '../schemas/User';
 import iUser from '../types/User';
 const dbname = "runnerup";
 mongoose.connect(`mongodb+srv://TrevorBrownDev:${process.env.MONGO_PASSWORD}@runnerup.u6ym7.gcp.mongodb.net/${dbname}?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true });
@@ -21,7 +20,6 @@ export const requestUser = async (_id: number) => {
 
 
 export const postUser = async (params: iUser, callback: ((arg0: mongoose.Document) => void)) => {
-    // const user = new User({ ...params });
     User.findById(params._id, (err, res) => {
         if (!res || err) {
             //user not found make a new one
@@ -33,7 +31,7 @@ export const postUser = async (params: iUser, callback: ((arg0: mongoose.Documen
             });
             
         } else {
-            console.log(res);
+            console.log("RESPONSE", res);
             callback(res);
         }
 

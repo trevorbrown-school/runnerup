@@ -14,6 +14,7 @@ import wger from 'api/wger';
 
 import './scss/App.scss';
 import axios from 'axios';
+import Button from 'components/Button';
 
 const clientId = '250456254334-ftjm0p2a9om31g16btupt44qmhoqqoff.apps.googleusercontent.com';
 
@@ -63,9 +64,6 @@ const App: React.FunctionComponent = () => {
     
 
   useEffect(() => {
-    
-
-
       (async () => {
         const response = await wger.get('/', {
           params: {
@@ -96,16 +94,20 @@ const App: React.FunctionComponent = () => {
 
 
   return (
-    <div className="ui-container">
-      <GoogleLogin
+    
+      
+      <div className="ui-container">
+      <Navbar>
+        <GoogleLogin
+          render={renderProps =><span onClick={renderProps.onClick} style={{display: "inline-block", width:"100%", height:"100%"}}><i className="fab fa-google"></i> Login</span>}
         clientId={clientId}
         buttonText="Login"
         onSuccess={onSuccess}
         onFailure={onFailure}
-        cookiePolicy={'single_host_origin'}
+          cookiePolicy={'single_host_origin'}
         isSignedIn={true}
       />
-      <Navbar />
+      </Navbar>
       <Switch>
         <Route path="/" exact><Home /></Route>
         <Route path="/workouts"><BrowseWorkouts workouts={workouts} filteredWorkouts={filteredWorkouts} setFilteredWorkouts={setFilteredWorkouts} myWorkouts={myWorkouts} addWorkout={addWorkout} /></Route>
