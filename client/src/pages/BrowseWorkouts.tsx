@@ -35,7 +35,11 @@ const BrowseWorkouts: React.FunctionComponent<BrowseWorkoutsParams> = ({ workout
         
         <div className="BrowseWorkouts">
             
-            <SearchWorkouts content={workouts} style={{marginBottom: "2rem"}} filter={setFilteredWorkouts}  />
+            <SearchWorkouts content={workouts} style={{ marginBottom: "2rem" }} filter={setFilteredWorkouts}
+                filterFunction={(workout, term) => {
+                return workout.name.toLowerCase().includes(term.name.toLowerCase()) || term.muscles.includes(workout.muscles);
+            }}
+            />
             {resourceLoading()}
             <TiledGrid content={filteredWorkouts} addWorkout={addWorkout} />
         </div>

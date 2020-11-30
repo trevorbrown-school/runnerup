@@ -9,7 +9,6 @@ const Home: React.FunctionComponent = () => {
     return (
         <div className="Home">
             <Header />
-            <Button>Click Me!</Button>
         </div>
     )
 }

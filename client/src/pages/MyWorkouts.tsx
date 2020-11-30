@@ -24,7 +24,12 @@ const MyWorkouts: React.FunctionComponent<MyWorkoutsProps> = ({workouts, myWorko
 
     return (
         <div className="BrowseWorkouts">
-            <SearchWorkouts content={myFullWorkouts} filter={setFilteredWorkouts} style={{marginBottom: "2rem"}} />
+            <SearchWorkouts content={myFullWorkouts} filter={setFilteredWorkouts} style={{ marginBottom: "2rem" }}
+            filterFunction={(workout, term) => {
+                return workout.name.toLowerCase().includes(term.name.toLowerCase()) || term.muscles.includes(workout.muscles);
+
+        }}
+            />
             <TiledGrid content={filteredWorkouts} removeWorkout={removeWorkout}/>
         </div>
     )
