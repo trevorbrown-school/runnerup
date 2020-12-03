@@ -2,7 +2,7 @@
   "name": "runnerup",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://trevorbrown-school.github.io/runnerup/",
+  "homepage": "https://trevorbrown-school.github.io/runnerup/#/",
   "dependencies": {
     "@babel/core": "7.9.0",
     "@svgr/webpack": "4.3.3",
