@@ -60,7 +60,9 @@ const App: React.FunctionComponent = () => {
   
 
 
-
+  useEffect(() => {
+    document.title = "Runnerup.io";
+},[])
     
 
   useEffect(() => {
